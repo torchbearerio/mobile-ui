@@ -3,3 +3,5 @@ export const INSTRUCTION_DISTANCES = {
   "100": "In one-hundred feet, ",
   "50": "",
 };
+
+export const ROUTEMANAGER_HOSTNAME = 'http://localhost:41011';

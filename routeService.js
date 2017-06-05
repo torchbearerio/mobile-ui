@@ -3,7 +3,8 @@ import * as Constants from './constants';
 import * as Utils from './utils';
 import Tts from 'react-native-tts';
 import {retrieveLandmarkForExecutionPoint} from './api';
-import { NativeModules, NativeEventEmitter } from 'react-native';
+import {NativeModules, NativeEventEmitter} from 'react-native';
+import {findIndex} from 'lodash';
 
 let route = [];
 let pipeline;
@@ -12,110 +13,111 @@ let locationWatchId;
 let deviationDistance = 0;
 const {TBNavigator} = NativeModules;
 const tbNavigatorEmitter = new NativeEventEmitter(TBNavigator);
-let routeAlertSubscription, routeProgressSubscription;
+let routeAlertSubscription, routeProgressSubscription, rerouteNeededSubscription;
+let distanceChangedCallback, rerouteNeededCallback;
 
 Tts.setDucking(true);
+Tts.addEventListener('tts-start', (event) => console.log("Tts start", event));
+Tts.addEventListener('tts-finish', (event) => console.log("Tts finish", event));
+Tts.addEventListener('tts-cancel', (event) => console.log("Tts cancel", event));
 
-export const registerRoute = (_route, waypoints, accuracy, _pipeline) => {
-  route = _route;
-  nextPointIdx = 0;
-  callback = Function;
-  pipeline = _pipeline;
+export async function registerRoute(_route, waypoints, accuracy, _pipeline) {
+    route = _route;
+    nextPointIdx = 0;
+    callback = Function;
+    pipeline = _pipeline;
 
-  TBNavigator.registerRoute(_route, waypoints, accuracy);
+    await TBNavigator.registerRoute(_route, waypoints, accuracy);
+}
+
+export const start = (_onDistanceChanged, _onRerouteNeeded) => {
+    distanceChangedCallback = _onDistanceChanged;
+    rerouteNeededCallback = _onRerouteNeeded;
+
+    routeAlertSubscription = tbNavigatorEmitter.addListener(
+        'RouteAlert',
+        handleRouteAlert
+    );
+
+    routeProgressSubscription = tbNavigatorEmitter.addListener(
+        'RouteProgress',
+        handleProgressUpdate
+    );
+
+    rerouteNeededSubscription = tbNavigatorEmitter.addListener(
+        'RerouteNeeded',
+        rerouteNeededCallback
+    );
+
+    TBNavigator.startNavigation();
 };
 
-export const start = (_callback) => {
-  routeAlertSubscription = tbNavigatorEmitter.addListener(
-    'RouteAlert',
-    (reminder) => console.log(reminder.name)
-  );
+export async function stop()  {
+    route = [];
+    await TBNavigator.stopNavigation();
+    routeAlertSubscription && routeAlertSubscription.remove();
+    routeProgressSubscription && routeProgressSubscription.remove();
+}
 
-  routeProgressSubscription = tbNavigatorEmitter.addListener(
-    'RouteProgress',
-    (reminder) => console.log(reminder.name)
-  );
+const handleRouteAlert = (alert) => {
+    const {epId, distanceString, action} = alert;
+    const step = getRouteStepByEpId(epId);
+    const landmark = step.maneuver.landmark;
 
-  callback = _callback || Function;
+    let instruction = "";
 
-  TBNavigator.startNavigation();
-};
+    if (distanceString)
+        instruction += `in ${distanceString}, `;
 
-export const stop = () => {
-  route = [];
-  TBNavigator.stopNavigation();
-  routeAlertSubscription.remove();
-  routeProgressSubscription.remove();
-};
-
-/**
- * Updates
- * @param position
- */
-const updatePosition = (position) => {
-  const {latitude, longitude} = position.coords;
-  const currentPosition = {lat: latitude, long: longitude};
-
-  console.log(`Lat: ${currentPosition.lat}, Long: ${currentPosition.long}`);
-
-  const nextTurn = route[nextPointIdx];
-
-  if (!nextTurn || !nextTurn.radii.length) return;
-
-  const nextCoords = {
-    lat: nextTurn.executionPoint.lat,
-    long: nextTurn.executionPoint.long
-  };
-  const distanceToTurn = Utils.distance(currentPosition, nextCoords);
-  console.log(`DISTANCE: ${distanceToTurn}`);
-  callback(distanceToTurn);
-
-  updateRadii(nextPointIdx, distanceToTurn);
-
-  const nextRadius = Utils.arrayMax(nextTurn.radii);
-
-  if (distanceToTurn <= nextRadius) {
-
-    console.log("RADIUS HIT!!!!!!!");
-
-    if (nextRadius === 1320 && !nextTurn.instruction.landmark) {
-      retrieveLandmarkForExecutionPoint(nextTurn.executionPoint.executionPointId, pipeline)
-        .then(response => {
-          route[nextPointIdx].instruction.landmark = response.landmark;
-          Tts.speak(buildInstruction(nextTurn.instruction, nextRadius));
-        })
+    if (landmark && landmark.computedDescription) {
+        instruction = `at the ${landmark.computedDescription}, `;
     }
 
-    else {
-      Tts.speak(buildInstruction(nextTurn.instruction, nextRadius));
+    instruction += `${action}.`;
+
+    Tts.speak(instruction);
+};
+
+const handleProgressUpdate = (event) => {
+    const {distanceRemaining, upcomingEpId} = event;
+
+    distanceChangedCallback();
+
+    // If we're within a mile of turn, see if we need to try and grab landmark info again
+    if (distanceRemaining <= 1600) {
+        const step = getRouteStepByEpId(upcomingEpId);
+
+        if (!step.descriptionCheck) {
+            // Mark this step as having been checked for landmark description
+            setDescriptionChecked(upcomingEpId, true);
+
+            // If we don't have the landamrk or its description, request from route manager
+            if (!step.maneuver.landmark || !step.maneuver.landmark.computedDescription) {
+                retrieveLandmarkForExecutionPoint(upcomingEpId, pipeline)
+                    .then(landmark => {
+                        if (landmark) {
+                            route[stepIndex].maneuver.landmark = landmark;
+                        }
+                    })
+                    .catch((e) => {
+                        if (e.reason === 'NOT_FOUND') {
+                            // Indicate that this step can be checked again for landmark description
+                            setDescriptionChecked(upcomingEpId, false);
+                        }
+                    })
+            }
+        }
     }
-
-    removeRadius(nextPointIdx, nextRadius);
-
-    if (route[nextPointIdx].radii.length === 0) {
-      nextPointIdx++;
-    }
-  }
 };
 
-const updateRadii = (turnIdx, distance) => {
-  while (route[turnIdx].radii[1] && distance < route[turnIdx].radii[1]) {
-    removeRadius(turnIdx, route[turnIdx].radii[0]);
-  }
+const getRouteStepByEpId = (epId) => {
+    const stepIndex = findIndex(route.legs[0].steps, step => step.executionPointId === epId);
+    const step = route.legs[0].steps[stepIndex];
+
+    return step
 };
 
-const removeRadius = (turnIdx, radius) => {
-  route[turnIdx].radii = route[turnIdx].radii.filter(r => r != radius);
-};
-
-const buildInstruction = (instruction, distance) => {
-  if (!Constants.INSTRUCTION_DISTANCES[distance]) {
-    return instruction.action;
-  }
-
-  return `${Constants.INSTRUCTION_DISTANCES[distance]}, ${instruction.action}.`;
-};
-
-const onError = (e) => {
-  console.warn(`RouteService: ${e.message}`);
+const setDescriptionChecked = (epId, checked = true) => {
+    const stepIndex = findIndex(route.legs[0].steps, step => step.executionPointId === epId);
+    route.legs[0].steps[stepIndex].descriptionCheck = checked;
 };

@@ -1,6 +1,8 @@
+import * as Constants from './constants';
+
 export const retrieveRoute = (originLat, originLong, destLat, destLong, pipeline) => {
   return new Promise((resolve, reject) => {
-    fetch('http://routemanager.torchbearer.io/route', {
+    fetch(`${Constants.ROUTEMANAGER_HOSTNAME}/route`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -30,7 +32,7 @@ export const retrieveRoute = (originLat, originLong, destLat, destLong, pipeline
 
 export const retrieveLandmarkForExecutionPoint = (epId, pipeline) => {
   return new Promise((resolve, reject) => {
-    fetch(`http://routemanager.torchbearer.io/executionpoint/${epId}/landmark?pipeline=${pipeline}`, {
+    fetch(`${Constants.ROUTEMANAGER_HOSTNAME}/executionpoint/${epId}/landmark?pipeline=${pipeline}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -42,7 +44,7 @@ export const retrieveLandmarkForExecutionPoint = (epId, pipeline) => {
           resolve(res.json());
         }
         else {
-          reject();
+          reject({reason: res.status === 404 ? "NOT_FOUND" : "UNKNOWN"});
         }
       })
       .catch((e) => {

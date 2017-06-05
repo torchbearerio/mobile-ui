@@ -55,15 +55,21 @@ class Torchbearer extends Component {
 
     API.retrieveRoute(originPoint.latitude, originPoint.longitude, destinationLat, destinationLong, pipeline)
       .then((route) => {
-        RouteService.registerRoute(route, waypoints, originPoint.accuracy, pipeline);
-        RouteService.start(d => this.setState({distanceToNextTurn: d}));
+        RouteService.registerRoute(route, waypoints, originPoint.accuracy, pipeline)
+            .then(() => {
+                RouteService.start(d => this.setState({distanceToNextTurn: d}), this.startNavigation);
+            });
         this.setState({screen: 'navigation'});
       })
       .catch((e) => console.log("Error fetching route: " + e));
   }
 
-  startNavigation = (originPoint) => {
-    this.setState({screen: 'loading'});
+  async startNavigation(originPoint) {
+    if (this.state.screen !== 'navigation') {
+      this.setState({screen: 'loading'});
+    }
+
+    await RouteService.stop();
 
     if (originPoint) {
       this.buildRoute(originPoint);
@@ -300,6 +306,9 @@ class Torchbearer extends Component {
             Stop
           </Text>
         </TouchableHighlight>
+        <Image source={require('./Images/city-skyline.png')}
+               style={styles.backgroundImg2}
+        />
       </View>
     );
   }
