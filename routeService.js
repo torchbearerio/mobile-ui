@@ -69,11 +69,14 @@ const handleRouteAlert = (alert) => {
     if (distanceString)
         instruction += `in ${distanceString}, `;
 
+    instruction += `${action}`;
+
     if (landmark && landmark.computedDescription) {
+        const positionSpecifier = Constants.LANDMARK_POSITIONS[landmark.position];
         instruction = `at the ${landmark.computedDescription}, `;
     }
 
-    instruction += `${action}.`;
+    instruction += ".";
 
     Tts.speak(instruction);
 };
