@@ -41,7 +41,9 @@
 		</dict>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Lets us follow you, even when ypou're asleep.</string>
+	<string>Lets us follow you, even when you're asleep.</string>
+  <key>NSLocationWhenInUseUsageDescription</key>
+  <string>Lets us follow you, but not when you're asleep.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Entypo.ttf</string>
@@ -55,6 +57,7 @@
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
 		<string>NixieOne-Regular.ttf</string>
+		<string>Feather.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

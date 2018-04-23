@@ -1,13 +1,11 @@
 package com.torchbearer;
 
 import android.app.Application;
-import android.util.Log;
 
 import com.facebook.react.ReactApplication;
 import com.oblador.vectoricons.VectorIconsPackage;
-import net.no_mad.tts.TextToSpeechPackage;
 import com.devfd.RNGeocoder.RNGeocoderPackage;
-import com.facebook.react.ReactInstanceManager;
+import net.no_mad.tts.TextToSpeechPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -20,7 +18,7 @@ public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     @Override
-    protected boolean getUseDeveloperSupport() {
+    public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
     }
 
@@ -29,9 +27,14 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new VectorIconsPackage(),
-            new TextToSpeechPackage(),
-            new RNGeocoderPackage()
+            new RNGeocoderPackage(),
+            new TextToSpeechPackage()
       );
+    }
+
+    @Override
+    protected String getJSMainModuleName() {
+      return "index";
     }
   };
 

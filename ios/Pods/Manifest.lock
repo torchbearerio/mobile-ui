@@ -6,7 +6,7 @@ PODS:
     - Polyline (~> 4.1)
   - OSRMTextInstructions (0.1.0):
     - MapboxDirections.swift
-  - Polyline (4.1.1)
+  - Polyline (4.2.0)
 
 DEPENDENCIES:
   - MapboxCoreNavigation (~> 0.2.1)
@@ -22,7 +22,7 @@ SPEC CHECKSUMS:
   MapboxCoreNavigation: f0cf6ba05c6627bfb3dc68868d8be1f088703b7b
   MapboxDirections.swift: 5249280d72d1fbabd1814f172f748f0efe7c2067
   OSRMTextInstructions: 2041ddf1b9cb11770b30c94ca2618c073326d826
-  Polyline: 381d1e699fd12508f97cfc468478dfbab67edf1f
+  Polyline: 3d69f75bb136357e27291d439d0436c6ebda57a4
 
 PODFILE CHECKSUM: 0199a788125eff063653d90d99795af6979d605a
 

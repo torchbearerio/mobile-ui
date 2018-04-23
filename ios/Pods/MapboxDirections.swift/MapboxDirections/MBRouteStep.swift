@@ -177,7 +177,7 @@ public enum ManeuverType: Int, CustomStringConvertible {
      This maneuver type is called out separately so that the application can present the user with lane guidance based on the first element in the `intersections` property. If lane guidance is unimportant to you, you may treat the maneuver as an ordinary `continue` or ignore it.
      */
     case useLane
-     
+    
     /**
      The step requires the user to enter, traverse, and exit a roundabout (traffic circle or rotary).
      
@@ -540,7 +540,7 @@ open class RouteStep: NSObject, NSSecureCoding {
     
     public required init?(coder decoder: NSCoder) {
         let coordinateDictionaries = decoder.decodeObject(of: [NSArray.self, NSDictionary.self, NSString.self, NSNumber.self], forKey: "coordinates") as? [[String: CLLocationDegrees]]
-		
+        
         coordinates = coordinateDictionaries?.flatMap({ (coordinateDictionary) -> CLLocationCoordinate2D? in
             if let latitude = coordinateDictionary["latitude"], let longitude = coordinateDictionary["longitude"] {
                 return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
@@ -553,7 +553,7 @@ open class RouteStep: NSObject, NSSecureCoding {
             return nil
         }
         instructions = decodedInstructions
-		
+        
         initialHeading = decoder.containsValue(forKey: "initialHeading") ? decoder.decodeDouble(forKey: "initialHeading") : nil
         finalHeading = decoder.containsValue(forKey: "finalHeading") ? decoder.decodeDouble(forKey: "finalHeading") : nil
         
@@ -618,7 +618,7 @@ open class RouteStep: NSObject, NSSecureCoding {
         coder.encode([
             "latitude": maneuverLocation.latitude,
             "longitude": maneuverLocation.longitude,
-        ], forKey: "maneuverLocation")
+            ], forKey: "maneuverLocation")
         
         if let exitIndex = exitIndex {
             coder.encode(exitIndex, forKey: "exitIndex")
@@ -806,7 +806,7 @@ open class RouteStep: NSObject, NSSecureCoding {
      An array of intersections along the step.
      
      Each item in the array corresponds to a cross street, starting with the intersection at the maneuver location indicated by the coordinates property and continuing with each cross street along the step.
-    */
+     */
     public let intersections: [Intersection]?
 }
 
@@ -857,3 +857,4 @@ internal class RouteStepV4: RouteStep {
         self.init(finalHeading: heading, maneuverType: maneuverType, maneuverDirection: maneuverDirection, maneuverLocation: maneuverLocation, name: name, coordinates: nil, json: json)
     }
 }
+

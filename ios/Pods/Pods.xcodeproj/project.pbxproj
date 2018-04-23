@@ -144,7 +144,7 @@
 		035AFAD16289A100B944C7D700A069FB /* OSRMTextInstructions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OSRMTextInstructions.swift; path = OSRMTextInstructions/OSRMTextInstructions.swift; sourceTree = "<group>"; };
 		0438DC3681BC8C9EFBBA58575756B81F /* MBIntersection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MBIntersection.swift; path = MapboxDirections/MBIntersection.swift; sourceTree = "<group>"; };
 		063EB9D96392A3868D7317C3379EBEC6 /* Pods-Torchbearer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Torchbearer-dummy.m"; sourceTree = "<group>"; };
-		07A2EEDA82E1B2FCB55F2E03EF41C904 /* MapboxDirections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MapboxDirections.framework; path = MapboxDirections.swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		07A2EEDA82E1B2FCB55F2E03EF41C904 /* MapboxDirections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxDirections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A41EE4BA2F47A79ED687F57F61DC621 /* Pods-Torchbearer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Torchbearer-acknowledgements.markdown"; sourceTree = "<group>"; };
 		0A9662B8DF433EB79CB39FCC343CA468 /* OSRMTextInstructions.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OSRMTextInstructions.xcconfig; sourceTree = "<group>"; };
 		0C173F2FF1544FD0881E0620A09C1E96 /* MBRouteOptions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBRouteOptions.h; path = MapboxDirections/MBRouteOptions.h; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 		368F777DE3C46165BEDC56A65A2BC224 /* Pods-TorchbearerTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TorchbearerTests-dummy.m"; sourceTree = "<group>"; };
 		3A3607A1299B8A5B12CB3BD1AAEF9676 /* RouteController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RouteController.swift; path = MapboxCoreNavigation/RouteController.swift; sourceTree = "<group>"; };
 		3DF8817EC70EBFFD7099473B14F6D275 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3E496F1752A43B34283F7F0571EA4239 /* Polyline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Polyline.framework; path = Polyline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E496F1752A43B34283F7F0571EA4239 /* Polyline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Polyline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F569304B50E591DB445C19E4710C4F6 /* OSRMTextInstructions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OSRMTextInstructions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41DAE920FBFB30DDA956BE69D1F555CF /* MapboxDirections.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MapboxDirections.swift-dummy.m"; sourceTree = "<group>"; };
 		4E87B4A389B7B25DD2F0001A689C8A2F /* Pods-Torchbearer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Torchbearer-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -181,19 +181,19 @@
 		5E85218DFD801396A20537947CFA1B9A /* MBWaypoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MBWaypoint.swift; path = MapboxDirections/MBWaypoint.swift; sourceTree = "<group>"; };
 		63F12E560CF3812326007E2DA1C5794C /* MBLaneIndication.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MBLaneIndication.swift; path = MapboxDirections/MBLaneIndication.swift; sourceTree = "<group>"; };
 		6A1FB741D4FA47B9B1D1DC878BCBEA19 /* Pods-Torchbearer-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Torchbearer-resources.sh"; sourceTree = "<group>"; };
-		6BE421913E766EDE5CDDABAFCBCB56FF /* Pods_Torchbearer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Torchbearer.framework; path = "Pods-Torchbearer.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BE421913E766EDE5CDDABAFCBCB56FF /* Pods_Torchbearer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Torchbearer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7261039117B3028BE7FBBF92651D0ACF /* Pods-TorchbearerTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TorchbearerTests.modulemap"; sourceTree = "<group>"; };
 		7269546BA7FA024C54531371BB653405 /* MBRoute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MBRoute.swift; path = MapboxDirections/MBRoute.swift; sourceTree = "<group>"; };
 		74FBB3255677F10EFD15C28B72204D3F /* Pods-TorchbearerTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TorchbearerTests-frameworks.sh"; sourceTree = "<group>"; };
 		755A48F1E8887778B251FBF1BA1B720F /* Pods-Torchbearer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Torchbearer.debug.xcconfig"; sourceTree = "<group>"; };
 		7C036F35198638B17813FC443601571E /* Polyline-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Polyline-prefix.pch"; sourceTree = "<group>"; };
-		7C443966E32418CA5EA3F30EAF375A57 /* MapboxCoreNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MapboxCoreNavigation.framework; path = MapboxCoreNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C443966E32418CA5EA3F30EAF375A57 /* MapboxCoreNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxCoreNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D11D523D7813EFC71AE7E6096F6BEDC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88A2A006325DE871866E5BB4BFC11733 /* Polyline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Polyline.swift; path = Polyline/Polyline.swift; sourceTree = "<group>"; };
 		8FC35F4FD8610CE5B2A7F57D46CCEE67 /* TokenType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenType.swift; path = OSRMTextInstructions/TokenType.swift; sourceTree = "<group>"; };
 		8FC5021B3783F6B5C2A55C9228A2400F /* Pods-TorchbearerTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TorchbearerTests-resources.sh"; sourceTree = "<group>"; };
 		8FEEBCB47508DB5D41D6718D25C46FB7 /* MapboxCoreNavigation-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MapboxCoreNavigation-umbrella.h"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		94E57BCA09461B3A5BA35E4761BE7901 /* Geometry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = MapboxCoreNavigation/Geometry.swift; sourceTree = "<group>"; };
 		952EE6893BD6FEE82EAC9FBFF1AAC9AA /* Pods-TorchbearerTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TorchbearerTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9F43BCF17F3892E645356E36E119C8FF /* MapboxDirections.swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MapboxDirections.swift-prefix.pch"; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 		AD0F5B3BB6BDBC672F33F9D58CFE0CCC /* MapboxCoreNavigation.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MapboxCoreNavigation.xcconfig; sourceTree = "<group>"; };
 		ADA2F2F2F25F77773F3CD7A19F79C8FE /* MBDirections.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MBDirections.swift; path = MapboxDirections/MBDirections.swift; sourceTree = "<group>"; };
 		ADC141DE9410D41271207BB9C3CDD032 /* MBLaneIndication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBLaneIndication.h; path = MapboxDirections/MBLaneIndication.h; sourceTree = "<group>"; };
-		AF432B90D1E02D8A3FBB4C69B6B9582E /* Pods_TorchbearerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TorchbearerTests.framework; path = "Pods-TorchbearerTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF432B90D1E02D8A3FBB4C69B6B9582E /* Pods_TorchbearerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TorchbearerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B08C405A53D371CD667AAF4301CAA887 /* Pods-Torchbearer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Torchbearer.release.xcconfig"; sourceTree = "<group>"; };
 		B19F77554A6A666D9ED4B6233D4AE642 /* Instructions.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = ru.lproj/Instructions.plist; sourceTree = "<group>"; };
 		B4DD64441C26A595E03998F728F5BEBB /* MapboxCoreNavigation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MapboxCoreNavigation.modulemap; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 		E0CD1BABA79F51A11650001EBE0A888A /* Instructions.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = vi.lproj/Instructions.plist; sourceTree = "<group>"; };
 		E7A74CB838CC53D1FC26A08593A7C4AA /* OSRMTextInstructions-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OSRMTextInstructions-dummy.m"; sourceTree = "<group>"; };
 		EAC70446B7CAD44AD00B03F97D58BA40 /* Polyline-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Polyline-umbrella.h"; sourceTree = "<group>"; };
-		ED9F88354773C61C5A5E50DF34BB3819 /* OSRMTextInstructions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OSRMTextInstructions.framework; path = OSRMTextInstructions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED9F88354773C61C5A5E50DF34BB3819 /* OSRMTextInstructions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OSRMTextInstructions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE89BEF3D71F2C264F9E535E57722CF /* Pods-TorchbearerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TorchbearerTests.release.xcconfig"; sourceTree = "<group>"; };
 		F7DFA74399CDE38BF97054A9FE697708 /* MapboxDirections.swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MapboxDirections.swift-umbrella.h"; sourceTree = "<group>"; };
 		F87FF194FD9AE40DA874741B80292E37 /* MapboxCoreNavigation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MapboxCoreNavigation-dummy.m"; sourceTree = "<group>"; };
@@ -317,7 +317,6 @@
 				59D6495AE20041AD921C293131A64131 /* RouteProgress.swift */,
 				F6B3EF8E9037985AF008892F22828A0E /* Support Files */,
 			);
-			name = MapboxCoreNavigation;
 			path = MapboxCoreNavigation;
 			sourceTree = "<group>";
 		};
@@ -385,7 +384,6 @@
 				88A2A006325DE871866E5BB4BFC11733 /* Polyline.swift */,
 				3C1AE5DEE65F87C133DC441628918FD7 /* Support Files */,
 			);
-			name = Polyline;
 			path = Polyline;
 			sourceTree = "<group>";
 		};
@@ -473,7 +471,6 @@
 				0655951AB3DB517C65A1C06C2F8A1106 /* Resources */,
 				2B80924CE82F34ADFBE32968A77D41EE /* Support Files */,
 			);
-			name = OSRMTextInstructions;
 			path = OSRMTextInstructions;
 			sourceTree = "<group>";
 		};
@@ -495,7 +492,6 @@
 				5E85218DFD801396A20537947CFA1B9A /* MBWaypoint.swift */,
 				9626791B497628508A1CC2D66C493F77 /* Support Files */,
 			);
-			name = MapboxDirections.swift;
 			path = MapboxDirections.swift;
 			sourceTree = "<group>";
 		};
@@ -1143,6 +1139,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1174,6 +1171,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1206,6 +1204,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1269,6 +1268,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
