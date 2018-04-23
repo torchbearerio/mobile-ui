@@ -11,6 +11,13 @@ PODS:
 DEPENDENCIES:
   - MapboxCoreNavigation (~> 0.2.1)
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - MapboxCoreNavigation
+    - MapboxDirections.swift
+    - OSRMTextInstructions
+    - Polyline
+
 SPEC CHECKSUMS:
   MapboxCoreNavigation: f0cf6ba05c6627bfb3dc68868d8be1f088703b7b
   MapboxDirections.swift: 5249280d72d1fbabd1814f172f748f0efe7c2067
@@ -19,4 +26,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 0199a788125eff063653d90d99795af6979d605a
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.0

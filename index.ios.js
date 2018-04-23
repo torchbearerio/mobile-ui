@@ -31,7 +31,6 @@ class Torchbearer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: 'Torchbearer',
       destinationLat: 0,
       destinationLong: 0,
       screen: 'home',
@@ -192,10 +191,10 @@ class Torchbearer extends Component {
               this.setState({pipeline: value})
             }}
             selectStyle={styles.selectList}>
-            <Option value={"cv-cv"}>CV-CV</Option>
-            <Option value={"cv-human"}>CV-Human</Option>
-            <Option value={"human-cv"}>Human-CV</Option>
-            <Option value={"human-human"}>Human-Human</Option>
+            <Option value={"CV-CV"}>CV-CV</Option>
+            <Option value={"CV-HUMAN"}>CV-Human</Option>
+            <Option value={"HUMAN-CV"}>Human-CV</Option>
+            <Option value={"HUMAN-HUMAN"}>Human-Human</Option>
           </Select>
           <TouchableHighlight style={styles.doneButton}
                               onPress={
@@ -241,22 +240,22 @@ class Torchbearer extends Component {
 
           </TouchableOpacity>
           <Text style={styles.hello}>
-            {this.state.text}
+            Torchbearer
           </Text>
-
-          <TextInput style={{height: 40, backgroundColor: 'white', opacity: 0.6}}
-                     placeholder="Where to? "
-                     onChangeText={
-                       (text) => this.setState({
-                         destination: text
-                       })
-                     }
-          />
 
           <Image source={require('./Images/city-skyline.png')}
                  style={
                    styles.backgroundImg2
                  }
+          />
+
+          <TextInput style={{height: 40, backgroundColor: 'white', opacity: 0.6}}
+                     placeholder="Where to? "
+                     onChangeText={
+                         (text) => this.setState({
+                             destination: text
+                         })
+                     }
           />
 
           <TouchableHighlight style={styles.goButton}
@@ -341,14 +340,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: null,
     height: null,
-    padding: 50,
+    padding: 20,
+    paddingTop: 50,
     paddingBottom: 0,
     backgroundColor: 'rgba(147, 195, 234, 1.0)',
   },
 
   hello: {
     padding: 10,
-    fontSize: 35,
+    fontSize: 30,
     textAlign: 'center',
     marginBottom: 100,
     fontFamily: "Nixie One"

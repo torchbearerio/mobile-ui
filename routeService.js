@@ -57,12 +57,24 @@ export async function stop()  {
     await TBNavigator.stopNavigation();
     routeAlertSubscription && routeAlertSubscription.remove();
     routeProgressSubscription && routeProgressSubscription.remove();
+    rerouteNeededSubscription && rerouteNeededSubscription.remove();
+
+    routeAlertSubscription = routeProgressSubscription = rerouteNeededSubscription = null;
 }
 
 const handleRouteAlert = (alert) => {
     const {epId, distanceString, action} = alert;
     const step = getRouteStepByEpId(epId);
     const landmark = step.maneuver.landmark;
+
+    // If description of landmark contains duplicate words at end, trim.
+    // This can happen if landmark category is included at end of landmark name.
+    let description = (landmark && landmark.computedDescription) || '';
+    const descriptionWords = description.split(' ');
+    if (descriptionWords.length > 1 &&
+        descriptionWords[descriptionWords.length - 1] === descriptionWords[descriptionWords.length - 2]) {
+        description = descriptionWords.slice(0, -1).join(' ');
+    }
 
     let instruction = "";
 
@@ -71,9 +83,9 @@ const handleRouteAlert = (alert) => {
 
     instruction += `${action}`;
 
-    if (landmark && landmark.computedDescription) {
+    if (description.length) {
         const positionSpecifier = Constants.LANDMARK_POSITIONS[landmark.position];
-        instruction = `at the ${landmark.computedDescription}, `;
+        instruction = `at the ${description}, `;
     }
 
     instruction += ".";
