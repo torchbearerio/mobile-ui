@@ -81,14 +81,12 @@ const handleRouteAlert = (alert) => {
     if (distanceString)
         instruction += `in ${distanceString}, `;
 
-    instruction += `${action}`;
-
     if (description.length) {
         const positionSpecifier = Constants.LANDMARK_POSITIONS[landmark.position];
-        instruction = `at the ${description}, `;
+        instruction += `at the ${description}, `;
     }
-
-    instruction += ".";
+    
+    instruction += `${action}.`;
 
     Tts.speak(instruction);
 };
